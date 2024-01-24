@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | FAQ accordion</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      @font-face {
+        font-family: WorkSans;
+        src: url("./assets/fonts/WorkSans-VariableFont_wght.ttf");
+      }
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+        padding: 1rem;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              "light-pink": "hsl(275, 100%, 97%)",
+              white: "hsl(0, 0%, 100%)",
+              "grayish-purple": "hsl(292, 16%, 49%)",
+              "dark-purple": "hsl(292, 42%, 14%)",
+            },
+          },
+        },
+      };
+    </script>
+    <style type="text/tailwindcss">
+      @layer components {
+        .accordion {
+          @apply flex flex-col cursor-pointer transition-all py-4 px-2;
+        }
+
+        .accordion-title {
+          @apply flex flex-row w-full items-center justify-between gap-4;
+        }
+
+        .accordion-title span {
+          @apply font-bold text-xl text-dark-purple;
+        }
+
+        .accordion p {
+          @apply text-grayish-purple mt-4;
+        }
+      }
+    </style>
+  </head>
+  <body
+    class="bg-light-pink font-['WorkSans'] overflow-x-hidden overflow-y-auto flex flex-col justify-between items-center w-screen h-screen bg-top bg-center bg-no-repeat"
+    style="
+      background-image: url('./assets/images/background-pattern-desktop.svg');
+    "
+  >
+    <main class="m-auto">
+      <div class="p-4 rounded-xl bg-white shadow-md flex flex-col w-[40rem]">
+        <header class="flex flex-row items-center gap-4">
+          <img src="./assets/images/icon-star.svg" alt="star" />
+          <h1 class="font-bold text-dark-purple text-5xl">FAQs</h1>
+        </header>
+
+        <div class="divide-y">
+          <div
+            class="accordion group"
+            id="accordion1"
+            onclick="toggleAccordion(this, 'accordion-p1', 'accordion-img1')"
+          >
+            <div class="accordion-title">
+              <span class="group-hover:!text-purple-700"
+                >What is Frontend Mentor, and how will it help me?</span
+              >
+              <img
+                src="./assets/images/icon-plus.svg"
+                alt="plus"
+                id="accordion-img1"
+              />
+            </div>
+            <p id="accordion-p1" class="hidden">
+              Frontend Mentor offers realistic coding challenges to help
+              developers improve their frontend coding skills with projects in
+              HTML, CSS, and JavaScript. It's suitable for all levels and ideal
+              for portfolio building.
+            </p>
+          </div>
+
+          <div
+            class="accordion group"
+            id="accordion2"
+            onclick="toggleAccordion(this, 'accordion-p2', 'accordion-img2')"
+          >
+            <div class="accordion-title">
+              <span class="group-hover:!text-purple-700"
+                >Is Frontend Mentor free?</span
+              >
+              <img
+                src="./assets/images/icon-plus.svg"
+                alt="plus"
+                id="accordion-img2"
+              />
+            </div>
+            <p id="accordion-p2" class="hidden">
+              Yes, Frontend Mentor offers both free and premium coding
+              challenges, with the free option providing access to a range of
+              projects suitable for all skill levels.
+            </p>
+          </div>
+
+          <div
+            class="accordion group"
+            id="accordion3"
+            onclick="toggleAccordion(this, 'accordion-p3', 'accordion-img3')"
+          >
+            <div class="accordion-title">
+              <span class="group-hover:!text-purple-700"
+                >Can I use Frontend Mentor projects in my portfolio?</span
+              >
+              <img
+                src="./assets/images/icon-plus.svg"
+                alt="plus"
+                id="accordion-img3"
+              />
+            </div>
+            <p id="accordion-p3" class="hidden">
+              Yes, you can use projects completed on Frontend Mentor in your
+              portfolio. It's an excellent way to showcase your skills to
+              potential employers!
+            </p>
+          </div>
+
+          <div
+            class="accordion group"
+            id="accordion4"
+            onclick="toggleAccordion(this, 'accordion-p4', 'accordion-img4')"
+          >
+            <div class="accordion-title">
+              <span class="group-hover:!text-purple-700"
+                >How can I get help if I'm stuck on a Frontend Mentor
+                challenge?</span
+              >
+              <img
+                src="./assets/images/icon-plus.svg"
+                alt="plus"
+                id="accordion-img4"
+              />
+            </div>
+            <p id="accordion-p4" class="hidden">
+              The best place to get help is inside Frontend Mentor's Discord
+              community. There's a help channel where you can ask questions and
+              seek support from other community members.
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by
+      <a href="https://haidarmn.github.io">Haidar Muhammad Naufal</a>.
+    </footer>
+
+    <script>
+      function toggleAccordion(id, pId, imgId) {
+        // Reset all accordions to hide them initially
+        ["1", "2", "3", "4"].forEach((num) => {
+          document
+            .getElementById(`accordion-p${num}`)
+            .classList.remove("!block");
+          document.getElementById(`accordion-img${num}`).src =
+            "./assets/images/icon-plus.svg";
+        });
+
+        // Show the selected accordion
+        document.getElementById(pId).classList.add("!block");
+        document.getElementById(imgId).src = "./assets/images/icon-minus.svg";
+      }
+    </script>
+  </body>
+</html>
