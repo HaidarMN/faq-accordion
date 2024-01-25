@@ -55,11 +55,11 @@
         }
 
         .accordion-title span {
-          @apply font-bold text-xl text-dark-purple;
+          @apply font-bold text-xl text-dark-purple text-base;
         }
 
         .accordion p {
-          @apply text-grayish-purple mt-4;
+          @apply text-grayish-purple mt-4 text-sm;
         }
       }
     </style>
@@ -70,8 +70,10 @@
       background-image: url('./assets/images/background-pattern-desktop.svg');
     "
   >
-    <main class="m-auto">
-      <div class="p-4 rounded-xl bg-white shadow-md flex flex-col w-[40rem]">
+    <main class="m-auto mt-20 md:mt-auto">
+      <div
+        class="p-4 rounded-xl bg-white shadow-md flex flex-col w-[20rem] md:w-[40rem]"
+      >
         <header class="flex flex-row items-center gap-4">
           <img src="./assets/images/icon-star.svg" alt="star" />
           <h1 class="font-bold text-dark-purple text-5xl">FAQs</h1>
@@ -93,7 +95,7 @@
                 id="accordion-img1"
               />
             </div>
-            <p id="accordion-p1" class="hidden">
+            <p id="accordion-p1" class="hidden !block">
               Frontend Mentor offers realistic coding challenges to help
               developers improve their frontend coding skills with projects in
               HTML, CSS, and JavaScript. It's suitable for all levels and ideal
